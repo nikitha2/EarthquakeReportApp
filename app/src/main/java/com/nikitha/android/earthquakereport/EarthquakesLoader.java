@@ -37,12 +37,10 @@ class EarthquakesLoader extends AsyncTaskLoader<ArrayList<ListObjectsClass>> {
         super(context);
         uri=toString;
     }
-//"https://earthquake.usgs.gov/fdsnws/event/1/query"?format=geojson&starttime=2012-01-01&endtime=2012-12-01&minmagnitude=6";
     @Nullable
     @Override
     public ArrayList<ListObjectsClass> loadInBackground() {
         ArrayList<ListObjectsClass> resultFromHttpCall= new ArrayList<>();
-      //  String stringUrl= args.getString("url");
         URL url=null;
 
             try {
@@ -57,7 +55,7 @@ class EarthquakesLoader extends AsyncTaskLoader<ArrayList<ListObjectsClass>> {
             try {
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
-                // TODO Handle the IOException
+               e.printStackTrace();
             }
         resultFromHttpCall = extractFeatureFromJson(jsonResponse);
         return resultFromHttpCall;

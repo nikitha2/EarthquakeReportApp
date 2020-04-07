@@ -42,7 +42,6 @@ import androidx.loader.content.Loader;
 
 public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<ArrayList<ListObjectsClass>> {
     private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
-            //"?format=geojson&starttime=2012-01-01&endtime=2012-12-01&minmagnitude=6";
     EarthquakeAdaptor earthquakesAdapter;
     Bundle input=new Bundle();
 
@@ -79,18 +78,11 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
         Uri.Builder uriBuilder = baseUri.buildUpon();
-//format=geojson&starttime=2012-01-01&endtime=2012-12-01&minmagnitude=6"
-        // Append query parameter and its value. For example, the `format=geojson`
         uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("starttime", "2012-01-01");
         uriBuilder.appendQueryParameter("endtime", "2012-12-01");
-        // uriBuilder.appendQueryParameter("limit", "10");
         uriBuilder.appendQueryParameter("minmagnitude", minMagnitude);
-       // uriBuilder.appendQueryParameter("orderby", "time");
-
-        // Return the completed uri `http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=10&minmag=minMagnitude&orderby=time
         return new EarthquakesLoader(this, uriBuilder.toString());
-       // return new EarthquakesLoader(MainActivity.this,args);
     }
 
     @Override

@@ -3,18 +3,13 @@ package com.nikitha.android.earthquakereport;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.graphics.drawable.GradientDrawable;
-
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
@@ -46,15 +41,7 @@ public class EarthquakeAdaptor extends ArrayAdapter<ListObjectsClass> {
 
         TextView date=(TextView) listItemView.findViewById(R.id.date);
 
-//        DecimalFormat formatter = new DecimalFormat("0.00");
-//        String output = formatter.format(2.3234);
         mag.setText(Double.toString(currentword.getMag()));
-
-       // String[] splitPlace= currentword.getPlace().split("of ",2);
-       // String place11=(splitPlace[0]).toUpperCase();
-
-       // place1.setText(place11+"OF");
-       // System.out.println("----------------------------------------1.1"+splitPlace[1]);
         place.setText(currentword.getPlace());
         System.out.println("----------------------------------------1.2"+currentword.getDate());
         date.setText(currentword.getDate());

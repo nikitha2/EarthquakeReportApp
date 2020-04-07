@@ -3,10 +3,8 @@ package com.nikitha.android.earthquakereport;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,8 +17,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static java.lang.Integer.parseInt;
 
 class QueryUtilsAsyncTask extends AsyncTask<URL, Void, ArrayList<ListObjectsClass>> {
     Context contextActivity;
@@ -71,7 +67,6 @@ class QueryUtilsAsyncTask extends AsyncTask<URL, Void, ArrayList<ListObjectsClas
         JSONArray features = null;
         // Create an empty ArrayList that we can start adding earthquakes to
         ArrayList<ListObjectsClass> earthquakes = new ArrayList<>();
-        //ListObjectsClass earthquakes = new ListObjectsClass();
 
         try{
             SAMPLE_JSON_RESPONSE_JSON=new JSONObject(jsonResponse);
